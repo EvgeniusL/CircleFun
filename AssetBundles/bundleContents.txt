@@ -1,0 +1,3 @@
+BundleName:sprites.unity3d
+NumberOfAssets:1
+Planets.png

@@ -16,17 +16,18 @@ public class Planet : MonoBehaviour
 	public Vector3 destination { get; set; }   	//Final destination
 	public Vector3 startPosition { get; set; } 	//StartPosition
 
+	private Vector3 temp;
 	void Start()
 	{
 		sprRend = GetComponent<SpriteRenderer> ();
-		size = Random.Range(0.25f, 1f);		//Set size
+		size = Random.Range(0.3f, 1f);		//Set size
 		transform.localScale *= size;		//Change size
 		points = 100 - (int)(size * 100);	//Set amount of points
 
 		Vector3 temp = new Vector3 ();
 		temp.y = -2f;
 		destination = temp;
-		temp.y = (1f - size)* -0.2f;
+		temp.y = (1.3f - size)* -0.1f;
 		speed = temp;
 
 		startPosition = new Vector3 (Random.Range (-3.0f, 3.0f), 5f, 0f);
@@ -38,24 +39,46 @@ public class Planet : MonoBehaviour
 	}
 	void ReConstruct()	//Object pool
 	{
-		sprRend.sprite = MainScript.sprites [Random.Range (0, MainScript.sprites.Count)] as Sprite;
-		size = Random.Range(0.25f, 1f);		//Set size
+		size = Random.Range(0.3f, 1f);		//Set size
 		transform.localScale *= size;		//Change size
 		points = 100 - (int)(size * 100);	//Set amount of points
 		
-		Vector3 temp = new Vector3 ();
+		temp = new Vector3 ();
 		temp.y = -2f;
 		destination = temp;
-		temp.y = (1f - size)* -0.2f;
+		if(MainScript.instance.difficulty == 1)
+			temp.y = (1.3f - size)* -0.1f;
+		else if(MainScript.instance.difficulty == 2)
+			temp.y = (1.3f - size)* -0.15f;
 		speed = temp;
-		
+
 		startPosition = new Vector3 (Random.Range (-3.0f, 3.0f), 5f, 0f);
 		transform.position = startPosition;
+
+		if (size <= 0.575) 
+		{
+			if (MainScript.instance.difficulty == 1)
+					sprRend.sprite = MainScript.smallSprites [Random.Range (0, MainScript.smallSprites.Count / 2)] as Sprite;
+			else if (MainScript.instance.difficulty == 2)
+					sprRend.sprite = MainScript.smallSprites [Random.Range (MainScript.smallSprites.Count / 2, MainScript.smallSprites.Count)] as Sprite;
+		}
+		else
+		{
+			if (MainScript.instance.difficulty == 1)
+				sprRend.sprite = MainScript.bigSprites [Random.Range (0, MainScript.bigSprites.Count / 2)] as Sprite;
+			else if (MainScript.instance.difficulty == 2)
+				sprRend.sprite = MainScript.bigSprites [Random.Range (MainScript.bigSprites.Count / 2, MainScript.bigSprites.Count)] as Sprite;
+
+		}
 	}
 	void Pop(bool countPoints)	//Poping the planet
 	{
-		if (countPoints)
-			MainScript.points += points;
+		audio.Play ();
+		if (countPoints) 
+		{
+			MainScript.instance.points += points;
+			MainScript.instance.UpdateScore();
+		}
 		transform.localScale /= size;
 		ReConstruct ();
 	}

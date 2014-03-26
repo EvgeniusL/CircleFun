@@ -46,12 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AssetBundleCreator\Scripts\Editor\AssetBundleContent.cs" />
-     <Compile Include="Assets\AssetBundleCreator\Scripts\Editor\AssetBundleWindow.cs" />
-     <Compile Include="Assets\AssetBundleCreator\Scripts\Editor\ClearCache.cs" />
-     <Compile Include="Assets\AssetBundleCreator\Scripts\Editor\CreateAssetBundles.cs" />
-     <None Include="Assets\AssetBundleCreator\license.txt" />
-     <None Include="Assets\AssetBundleCreator\README.txt" />
+     <Compile Include="Assets\AssetBundleCreator-master\AssetBundleCreator\Scripts\Editor\AssetBundleContent.cs" />
+     <Compile Include="Assets\AssetBundleCreator-master\AssetBundleCreator\Scripts\Editor\AssetBundleWindow.cs" />
+     <Compile Include="Assets\AssetBundleCreator-master\AssetBundleCreator\Scripts\Editor\ClearCache.cs" />
+     <Compile Include="Assets\AssetBundleCreator-master\AssetBundleCreator\Scripts\Editor\CreateAssetBundles.cs" />
+     <None Include="Assets\AssetBundleCreator-master\AssetBundleCreator\license.txt" />
+     <None Include="Assets\AssetBundleCreator-master\AssetBundleCreator\README.txt" />
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>

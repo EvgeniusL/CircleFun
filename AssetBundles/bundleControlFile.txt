@@ -1,3 +1,6 @@
-BundleName:sprites.unity3d
+BundleName:bigsprites.unity3d
+VersionNumber:1
+
+BundleName:smallsprites.unity3d
 VersionNumber:1
 

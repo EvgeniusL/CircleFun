@@ -1,3 +1,6 @@
-BundleName:sprites.unity3d
+BundleName:bigsprites.unity3d
 NumberOfAssets:1
-Planets.png
+BigSprites.png
+BundleName:smallsprites.unity3d
+NumberOfAssets:1
+SmallSprites.png
